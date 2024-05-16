@@ -2,33 +2,15 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import japanize_matplotlib
 
 # カスタムCSSを適用
 st.markdown("""
     <style>
     .stApp {
-        background-color: #f3ffc6;
+        background-color: #ffffff;
     }
-    .stTextInput label {
-        color: #333;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-    .stFileUploader label {
-        color: #333;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-    .stButton button {
-        background-color: #007bff;
-        color: white;
-        font-size: 1em;
-        border-radius: 5px;
-    }
-    .stButton button:hover {
-        background-color: #0056b3;
-        color: white;
-    }
+
     .stMarkdown h1, h2, h3, h4, h5, h6 {
         color: #007bff;
     }
@@ -36,7 +18,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("アンケート結果の分析")
+st.title("アンケート結果をもっと有効的に活用する")
 
 # ユーザーからエクセルファイルをアップロードしてもらう
 uploaded_file = st.file_uploader("アンケート結果のエクセルファイルをアップロードしてください", type=["xlsx"])
@@ -77,8 +59,9 @@ if uploaded_file:
                 ax.barh(range(len(data)), data, tick_label=labels, color='#007bff')
 
                 # グラフのタイトルとラベルを設定（オプション）
-                ax.set_ylabel('question')
-                ax.set_title('new questionnaire results')
+                ax.set_ylabel('質問')
+                ax.set_xlabel('評価の合計')
+                ax.set_title('新しいアンケート結果')
 
                 # グラフをStreamlitで表示
                 st.pyplot(fig)
@@ -88,4 +71,14 @@ if uploaded_file:
             st.error("カンマで区切られた有効な整数を入力してください。")
 else:
     st.info("エクセルファイルをアップロードしてください。")
+
+
+
+
+
+
+
+
+
+
 
