@@ -26,7 +26,7 @@ uploaded_file = st.file_uploader("アンケート結果のエクセルファイ�
 if uploaded_file:
     # エクセルファイルを読み込む
     df = pd.read_excel(uploaded_file, index_col=0)  # 1列目をインデックスとして使用する
-    A = df.values[0:, 0:]  # 2行目と2列目以降を取得
+    A = df.values[0:, 0:] 
     
     st.subheader("アンケート結果:")
     st.dataframe(df)
