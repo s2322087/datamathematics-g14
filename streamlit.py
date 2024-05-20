@@ -4,7 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import japanize_matplotlib
 
-# カスタムCSSを適用
 st.markdown("""
     <style>
     .stApp {
